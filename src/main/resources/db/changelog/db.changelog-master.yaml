@@ -1,0 +1,70 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelog-master.yaml
+  - changeSet:
+      id: 1
+      author: aleks_usharovskii
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(512)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(50)
+              - column:
+                  name: last_name
+                  type: varchar(50)
+              - column:
+                  name: email
+                  type: varchar(50)
+
+  - changeSet:
+      id: 2
+      author: aleks_usharovskii
+      comment: "Create admin user"
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: username
+                  value: "admin"
+              - column:
+                  name: password
+                  value: "admin"
+              - column:
+                  name: email
+                  value: "admin@server.com"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: username
+                  value: "guest"
+              - column:
+                  name: password
+                  value: "guest"
+              - column:
+                  name: email
+                  value: "guest@server.com"
+      rollback:
+        - delete:
+            tableName: users
+            where: username in ('admin', 'guest')
