@@ -1,0 +1,78 @@
+databaseChangeLog:
+- logicalFilePath: db/changelog/db.changelog-20190723-102905471.yaml
+- changeSet:
+    id: 1563877765929-1
+    author: your_liquibase_username (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: rolesPK
+            name: id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(255)
+        tableName: roles
+- changeSet:
+    id: 1563877765929-2
+    author: your_liquibase_username (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: user_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: role_id
+            type: BIGINT
+        tableName: users_roles
+- changeSet:
+    id: 1563877765929-3
+    author: your_liquibase_username (generated)
+    changes:
+    - addPrimaryKey:
+        columnNames: user_id, role_id
+        tableName: users_roles
+- changeSet:
+    id: 1563877765929-4
+    author: your_liquibase_username (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: name
+        constraintName: UC_ROLESNAME_COL
+        tableName: roles
+- changeSet:
+    id: 1563877765929-5
+    author: your_liquibase_username (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: users_roles
+        constraintName: FK2o0jvgh89lemvvo17cbqvdxaa
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: users
+- changeSet:
+    id: 1563877765929-6
+    author: your_liquibase_username (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: role_id
+        baseTableName: users_roles
+        constraintName: FKj6m8fwv7oqv74fcehir1a9ffy
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: roles
+
