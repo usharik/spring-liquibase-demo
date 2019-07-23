@@ -68,3 +68,11 @@ databaseChangeLog:
         - delete:
             tableName: users
             where: username in ('admin', 'guest')
+
+  - include:
+      file: db.changelog-20190723-100748666.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: db.changelog-20190723-102905471.yaml
+      relativeToChangelogFile: true
