@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.6.RELEASE</version>
+        <version>2.2.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ru.usharik</groupId>
@@ -79,7 +79,7 @@
             <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
-                <version>3.5.5</version>
+                <version>3.8.1</version>
                 <configuration>
                     <propertyFile>${project.build.outputDirectory}/liquibase-maven-plugin.properties</propertyFile>
                     <systemProperties>
@@ -96,22 +96,7 @@
                     <dependency>
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-starter-data-jpa</artifactId>
-                        <version>2.1.5.RELEASE</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>javax.validation</groupId>
-                        <artifactId>validation-api</artifactId>
-                        <version>2.0.1.Final</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.javassist</groupId>
-                        <artifactId>javassist</artifactId>
-                        <version>3.24.0-GA</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.yaml</groupId>
-                        <artifactId>snakeyaml</artifactId>
-                        <version>1.12</version>
+                        <version>2.2.0.RELEASE</version>
                     </dependency>
                 </dependencies>
             </plugin>
